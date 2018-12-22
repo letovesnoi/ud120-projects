@@ -29,8 +29,8 @@ from sklearn.metrics import accuracy_score
 
 clf = svm.SVC(kernel="rbf", C=10000.0)
 
-features_train = features_train[:len(features_train)/100]
-labels_train = labels_train[:len(labels_train)/100]
+# features_train = features_train[:len(features_train)/100]
+# labels_train = labels_train[:len(labels_train)/100]
 
 t0 = time()
 clf.fit(features_train, labels_train)
@@ -42,7 +42,15 @@ print "predicting time:", round(time()-t0, 3), "s"
 
 print "Accuracy:", round(accuracy_score(pred, labels_test), 2)
 
-print 'Elements 10, 26, 50 of the prediction: ', pred[10], pred[26], pred[50]
+# print 'Elements 10, 26, 50 of the prediction: ', pred[10], pred[26], pred[50]
+
+# How Many Chris / Sara Emails Predicted?
+import numpy
+
+unique, counts = numpy.unique(pred, return_counts=True)
+chris_predicted = dict(zip(unique, counts))[1]
+sara_predicted = dict(zip(unique, counts))[0]
+print 'Number of Predicted Chris Emails: ', chris_predicted
 
 #########################################################
 
