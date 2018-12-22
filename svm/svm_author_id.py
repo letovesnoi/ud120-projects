@@ -29,8 +29,8 @@ from sklearn.metrics import accuracy_score
 
 clf = svm.SVC(kernel="rbf", C=10000.0)
 
-# features_train = features_train[:len(features_train)/100]
-# labels_train = labels_train[:len(labels_train)/100]
+features_train = features_train[:len(features_train)/100]
+labels_train = labels_train[:len(labels_train)/100]
 
 t0 = time()
 clf.fit(features_train, labels_train)
@@ -41,6 +41,8 @@ pred = clf.predict(features_test)
 print "predicting time:", round(time()-t0, 3), "s"
 
 print "Accuracy:", round(accuracy_score(pred, labels_test), 2)
+
+print 'Elements 10, 26, 50 of the prediction: ', pred[10], pred[26], pred[50]
 
 #########################################################
 
