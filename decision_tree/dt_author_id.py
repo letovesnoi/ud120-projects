@@ -40,6 +40,11 @@ print "predicting time:", round(time()-t0, 3), "s"
 
 print "Accuracy:", round(accuracy_score(pred, labels_test), 3)
 
+# The data is organized into a numpy array
+# where the number of rows is the number of data points and
+# the number of columns is the number of features
+print 'Number of features: ', len(features_train[0])
+
 #########################################################
 
 
