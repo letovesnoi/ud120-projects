@@ -19,11 +19,10 @@ import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
-person_of_interest = 0
-for lastname_firstname_middleinitial in enron_data:
-    print lastname_firstname_middleinitial
-    if enron_data[lastname_firstname_middleinitial]["poi"] == 1:
-        person_of_interest += 1
+# person_of_interest = 0
+# for lastname_firstname_middleinitial in enron_data:
+#     print lastname_firstname_middleinitial
+#     if enron_data[lastname_firstname_middleinitial]["poi"] == 1:
+#         person_of_interest += 1
 
-print person_of_interest
-
+print enron_data['PRENTICE JAMES']['total_stock_value']
