@@ -19,33 +19,16 @@ import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
-# person_of_interest = 0
-
-# How many folks in this dataset have a quantified salary? What about a known email address?
-# quantified_salary = 0
-# email_address = 0
-nan_total_payments = 0
-percent_nan_total_payments = 0
+person_of_interest = 0
+poi_nan_total_payments = 0
+percent_poi_nan_total_payments = 0
 for lastname_firstname_middleinitial in enron_data:
-#     print lastname_firstname_middleinitial
-#     if enron_data[lastname_firstname_middleinitial]["poi"] == 1:
-#         person_of_interest += 1
-#     if enron_data[lastname_firstname_middleinitial]['salary'] != 'NaN':
-#         quantified_salary += 1
-#     if enron_data[lastname_firstname_middleinitial]['email_address'] != 'NaN':
-#         email_address += 1
-    if enron_data[lastname_firstname_middleinitial]['total_payments'] == 'NaN':
-        nan_total_payments += 1
-# print 'Quantified salary: ', quantified_salary
-# print 'Known email address: ', email_address
-total = len(enron_data)
-percent_nan_total_payments = int(nan_total_payments * 1.0 / total * 100)
-print 'NaN for their total payments:', nan_total_payments, ' percentage:', percent_nan_total_payments, '%'
-
-# print enron_data['PRENTICE JAMES']['total_stock_value']
-# print enron_data['COLWELL WESLEY']['from_this_person_to_poi']
-# print enron_data['SKILLING JEFFREY K']['exercised_stock_options']
-
+    if enron_data[lastname_firstname_middleinitial]["poi"] == True:
+        person_of_interest += 1
+        if enron_data[lastname_firstname_middleinitial]['total_payments'] == 'NaN':
+            poi_nan_total_payments += 1
+percent_poi_nan_total_payments = int(poi_nan_total_payments * 1.0 / person_of_interest * 100)
+print poi_nan_total_payments, 'out of', person_of_interest, '\n', percent_poi_nan_total_payments, '% of POI\'s don\'t have total_payments filled'
 
 # CEO of Enron: Jeffrey Skilling
 # Chairman of the Enron board of directors: Kenneth Lay
