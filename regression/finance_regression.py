@@ -43,7 +43,7 @@ reg = LinearRegression()
 reg.fit(feature_train, target_train)
 print 'Slope: ', reg.coef_, '\n Intercept: ', reg.intercept_
 
-
+print 'Score on the training data: ', reg.score(feature_train, target_train)
 
 
 ### draw the scatterplot, with color-coded training and testing points
