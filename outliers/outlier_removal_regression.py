@@ -29,17 +29,7 @@ from sklearn.linear_model import LinearRegression
 
 reg = LinearRegression()
 reg.fit(ages_train, net_worths_train)
-print 'Slope: ', reg.coef_, '\nIntercept: ', reg.intercept_, '\nScore: ', reg.score(ages_test, net_worths_test)
-
-
-
-
-
-
-
-
-
-
+# print 'Slope: ', reg.coef_, '\nIntercept: ', reg.intercept_, '\nScore: ', reg.score(ages_test, net_worths_test)
 
 try:
     plt.plot(ages, reg.predict(ages), color="blue")
@@ -67,12 +57,13 @@ except NameError:
 ### only run this code if cleaned_data is returning data
 if len(cleaned_data) > 0:
     ages, net_worths, errors = zip(*cleaned_data)
-    ages       = numpy.reshape( numpy.array(ages), (len(ages), 1))
+    ages = numpy.reshape( numpy.array(ages), (len(ages), 1))
     net_worths = numpy.reshape( numpy.array(net_worths), (len(net_worths), 1))
 
     ### refit your cleaned data!
     try:
         reg.fit(ages, net_worths)
+        print 'Slope: ', reg.coef_, '\nIntercept: ', reg.intercept_, '\nScore: ', reg.score(ages_test, net_worths_test)
         plt.plot(ages, reg.predict(ages), color="blue")
     except NameError:
         print "you don't seem to have regression imported/created,"
