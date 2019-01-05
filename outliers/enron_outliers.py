@@ -11,22 +11,20 @@ from feature_format import featureFormat, targetFeatureSplit
 data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "r") )
 data_dict.pop('TOTAL', 0)
 
+# Two people made bonuses of at least 5 million dollars,
+# and a salary of over 1 million dollars
+like_bandits = {name for name, dict_value in data_dict.items() if (dict_value['bonus'] > 5000000 and dict_value['salary'] > 1000000 and dict_value['bonus'] != 'NaN' and dict_value['salary'] != 'NaN')}
+print like_bandits
+
 features = ["salary", "bonus"]
 data = featureFormat(data_dict, features)
 
 
 ### your code below
-max_salary = 0
-max_bonus = 0
 for point in data:
     salary = point[0]
     bonus = point[1]
     matplotlib.pyplot.scatter( salary, bonus )
-    if salary > max_salary:
-        max_salary = salary
-    if bonus > max_bonus:
-        max_bonus = bonus
-print max_salary, max_bonus
 
 matplotlib.pyplot.xlabel("salary")
 matplotlib.pyplot.ylabel("bonus")
