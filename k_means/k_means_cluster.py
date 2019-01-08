@@ -81,9 +81,10 @@ except NameError:
     print "no predictions object named pred found, no clusters to plot"
 
 
-# What are the maximum and minimum values of the "exercised_stock_options"
-exercised_stock_options = [data_dict[name]["exercised_stock_options"] for name in data_dict
-                           if data_dict[name]["exercised_stock_options"] != 'NaN']
-max_ESO = max(exercised_stock_options)
-min_ESO = min(exercised_stock_options)
-print 'max: ', max_ESO, '\nmin: ', min_ESO
+# What are the maximum and minimum values of the feature_name
+feature_name = "salary"
+feature_data = [data_dict[name][feature_name] for name in data_dict
+                if data_dict[name][feature_name] != 'NaN']
+max_feature_value = max(feature_data)
+min_feature_value = min(feature_data)
+print 'max: ', max_feature_value, '\nmin: ', min_feature_value
