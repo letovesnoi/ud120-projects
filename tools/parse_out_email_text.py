@@ -23,22 +23,26 @@ def parseOutText(f):
     ### split off metadata
     content = all_text.split("X-FileName:")
     words = ""
+    stem_test_string = ""
     if len(content) > 1:
         ### remove punctuation
         text_string = content[1].translate(string.maketrans("", ""), string.punctuation)
 
         ### project part 2: comment out the line below
-        words = text_string
+        # words = text_string
 
         ### split the text string into individual words, stem each word,
         ### and append the stemmed word to words (make sure there's a single
         ### space between each stemmed word)
-        
+        from nltk.stem.snowball import SnowballStemmer
 
+        stemmer = SnowballStemmer("english")
 
+        words = text_string.split()
+        stem_words = [stemmer.stem(word) for word in words]
+        stem_test_string = " ".join(stem_words)
 
-
-    return words
+    return stem_test_string
 
     
 
