@@ -83,3 +83,4 @@ vectorizer = TfidfVectorizer(stop_words="english")
 # term_document_matrix: (document, word) tfidf weight
 term_document_matrix = vectorizer.fit_transform(word_data)
 print 'Number of unique words in Tfidf: ', len(vectorizer.get_feature_names())
+print vectorizer.get_feature_names()[34597]
