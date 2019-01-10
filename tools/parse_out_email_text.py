@@ -36,7 +36,7 @@ def parseOutText(f):
         ### space between each stemmed word)
         from nltk.stem.snowball import SnowballStemmer
 
-        stemmer = SnowballStemmer("english")
+        stemmer = SnowballStemmer("english", ignore_stopwords=True)
 
         words = text_string.split()
         stem_words = [stemmer.stem(word) for word in words]
