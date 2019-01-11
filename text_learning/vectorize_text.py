@@ -52,7 +52,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
 
         ### use str.replace() to remove any instances of the words
         ### ["sara", "shackleton", "chris", "germani"]
-        for instance in ["sara", "shackleton", "chris", "germani", "sshacklensf"]:
+        for instance in ["sara", "shackleton", "chris", "germani", "sshacklensf", "cgermannsf"]:
             stem_test_string = stem_test_string.replace(instance, '')
 
         ### append the text to word_data

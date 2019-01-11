@@ -55,7 +55,8 @@ import numpy as np
 importances = [importance for importance in clf.feature_importances_ if importance > 0.2]
 max_importance = max(clf.feature_importances_)
 max_ind = np.argmax(clf.feature_importances_)
-print max_importance, max_ind
+print 'Importances: ', importances
+print 'Max importance: ', max_importance, 'Index: ', max_ind
 
 # Get the most important word with TfIdf
-print vectorizer.get_feature_names()[max_ind]
+print 'The most important word: ', vectorizer.get_feature_names()[max_ind]
