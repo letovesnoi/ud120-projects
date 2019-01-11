@@ -46,3 +46,13 @@ clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
 print "Accuracy:", accuracy_score(pred, labels_test)
 print 'Number of training points: ', len(features_train)
+
+
+# What's the importance of the most important feature?
+# What is the number of this feature?
+import numpy as np
+
+importances = [importance for importance in clf.feature_importances_ if importance > 0.2]
+max_importance = max(clf.feature_importances_)
+max_ind = np.argmax(clf.feature_importances_)
+print max_importance, max_ind
