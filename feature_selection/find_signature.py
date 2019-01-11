@@ -47,6 +47,10 @@ pred = clf.predict(features_test)
 print "Accuracy:", accuracy_score(pred, labels_test)
 print 'Number of training points: ', len(features_train)
 
+# check overfitting (accuracy on training data >> accuracy on test)
+pred_train = clf.predict(features_train)
+print "Accuracy on training data:", accuracy_score(pred_train, labels_train)
+
 
 # What's the importance of the most important feature?
 # What is the number of this feature?
