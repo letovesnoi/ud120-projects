@@ -30,13 +30,19 @@ labels, features = targetFeatureSplit(data)
 ### it's all yours from here forward!
 from sklearn import tree
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 
 # Create a decision tree classifier (just use the default parameters)
 clf = tree.DecisionTreeClassifier()
 
-# train it on all the data (you will fix this in the next part!)
-clf.fit(features, labels)
+# Cross_validation
+features_train, features_test, labels_train, labels_test = train_test_split(features, labels, test_size=0.3, random_state=42)
 
-pred = clf.predict(features)
-# and print out the accuracy
-print "Accuracy:", round(accuracy_score(pred, labels), 3)
+# train it on 70% of data
+clf.fit(features_train, labels_train)
+
+# predict on 30% of data
+pred = clf.predict(features_test)
+
+# and print out the accuracy on the test set
+print "Accuracy:", accuracy_score(pred, labels_test)
