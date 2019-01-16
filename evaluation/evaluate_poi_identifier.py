@@ -28,7 +28,11 @@ labels, features = targetFeatureSplit(data)
 
 ### your code goes here 
 from sklearn import tree
+
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+
 from sklearn.model_selection import train_test_split
 
 features_train, features_test, labels_train, labels_test = train_test_split(features, labels, test_size=0.3, random_state=42)
@@ -56,3 +60,5 @@ for ii, jj in zip(labels_test, pred):
         TP += 1
 print 'True positive: ', TP
 
+print 'Precision: ', precision_score(labels_test, pred)
+print 'Recall: ', recall_score(labels_test, pred)
