@@ -45,3 +45,14 @@ print 'Number of predicted POIs: ', sum(labels_test)
 print 'Total people in the test set: ', len(labels_test)
 # If your identifier predicted 0. (not POI) for everyone in the test set, what would its accuracy be?
 print accuracy_score([0] * 29, labels_test)
+
+i_labels_test = [i for i in range(len(labels_test)) if labels_test[i]]
+i_pred = [i for i in range(len(pred)) if pred[i]]
+print i_labels_test, i_pred
+# Where both the actual label and the predicted label are 1
+TP = 0
+for ii, jj in zip(labels_test, pred):
+    if ii == 1 and jj == 1:
+        TP += 1
+print 'True positive: ', TP
+
