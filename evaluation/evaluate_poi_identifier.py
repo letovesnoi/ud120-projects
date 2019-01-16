@@ -53,12 +53,21 @@ print accuracy_score([0] * 29, labels_test)
 i_labels_test = [i for i in range(len(labels_test)) if labels_test[i]]
 i_pred = [i for i in range(len(pred)) if pred[i]]
 print i_labels_test, i_pred
-# Where both the actual label and the predicted label are 1
+
 TP = 0
+TN = 0
+FP = 0
+FN = 0
 for ii, jj in zip(labels_test, pred):
     if ii == 1 and jj == 1:
         TP += 1
-print 'True positive: ', TP
+    if ii == 0 and jj == 0:
+        TN += 1
+    if ii == 0 and jj == 1:
+        FP += 1
+    if ii == 1 and jj == 0:
+        FN += 1
+print 'True positive: ', TP, '\nTrue negative: ', TN, '\nFalse positive: ', FP, '\nFalse negative: ', FN
 
 print 'Precision: ', precision_score(labels_test, pred)
 print 'Recall: ', recall_score(labels_test, pred)
