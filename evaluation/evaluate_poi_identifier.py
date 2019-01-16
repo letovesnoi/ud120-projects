@@ -43,5 +43,5 @@ print "Accuracy:", accuracy_score(pred, labels_test)
 print 'Number of predicted POIs: ', sum(labels_test)
 # How many people total are in the test set?
 print 'Total people in the test set: ', len(labels_test)
-
-
+# If your identifier predicted 0. (not POI) for everyone in the test set, what would its accuracy be?
+print accuracy_score([0] * 29, labels_test)
